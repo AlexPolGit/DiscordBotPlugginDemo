@@ -1,15 +1,11 @@
 package discordpluggins;
 
-import java.util.ArrayList;
-import java.util.Random;
 import me.itsghost.jdiscord.events.UserChatEvent;
 import me.itsghost.jdiscord.message.MessageBuilder;
 
-public class FunnyMemeEvent extends BaseEvent
+public class FullWidthEvent extends BaseEvent
 {
-    ArrayList<String> received;
-    
-    public FunnyMemeEvent(String name, String command, String description)
+    public FullWidthEvent(String name, String command, String description)
     {
         super(name, command, description);
         this.api = super.api;
@@ -18,18 +14,17 @@ public class FunnyMemeEvent extends BaseEvent
         this.description = description;
     }
 
-    public void setFileData(ArrayList<String> data)
-    {
-        received = data;
-    }
-    
     @Override
     public void doCommand(UserChatEvent e)
     {
-        Random r = new Random();
-        String result = received.get(r.nextInt(received.size()));
+        String m = e.getMsg().getMessage().split(" ")[1];
+        String text = "";
+        for (int i = 0; i < m.length(); i++)
+        {
+            text += (char)(m.charAt(i) + 0xFEE0);
+        }
         e.getGroup().sendMessage(new MessageBuilder()
-            .addString(result)
+            .addString(text)
         .build(api));
     }
 }

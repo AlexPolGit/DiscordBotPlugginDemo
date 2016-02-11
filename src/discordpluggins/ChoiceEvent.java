@@ -6,8 +6,7 @@ import me.itsghost.jdiscord.events.UserChatEvent;
 import me.itsghost.jdiscord.message.MessageBuilder;
 
 public class ChoiceEvent extends BaseEvent
-{
-    
+{ 
     final ArrayList<BaseEvent> CE = super.commandsEquals;
     final ArrayList<BaseEvent> CS = super.commandsStarts;
     

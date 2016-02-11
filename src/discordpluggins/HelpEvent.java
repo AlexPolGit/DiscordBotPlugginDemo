@@ -26,14 +26,7 @@ public class HelpEvent extends BaseEvent
 
     @Override
     public void doCommand(UserChatEvent e)
-    {
-        e.getGroup().sendMessage(new MessageBuilder() 
-            .addString("```")
-            .addString("\n")
-            .addString("```")
-            .addString("\n")
-        .build(api));
-        
+    {     
         System.err.println("Fetched Commands Equal: " + CE);
 
         for (BaseEvent ce : CE)
@@ -55,12 +48,5 @@ public class HelpEvent extends BaseEvent
                 .addBold(cs.description + "\n")
             .build(api));
         }
-
-        e.getGroup().sendMessage(new MessageBuilder()     
-            .addString("\n")
-            .addString("```")
-            .addString("\n")
-            .addString("```")
-        .build(api));
     }
 }
