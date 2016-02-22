@@ -25,7 +25,7 @@ public class StartAPI
         }
         catch (InterruptedException ie)
         {
-            System.err.println("You dun fucked up: " + ie.toString());
+            System.err.println(ie.toString());
         }
     }
     
